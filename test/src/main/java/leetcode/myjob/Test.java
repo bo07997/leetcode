@@ -130,11 +130,13 @@ public class Test {
 		if (result.isEmpty()) {
 			return;
 		}
-		Integer father = result.stream().filter(hasClear::containsKey).findAny().orElse(null);
+		Map.Entry<Integer, Set<Integer>> father = hasClear.entrySet().stream()
+				.filter(en -> result.stream().anyMatch(coordinate -> en.getValue().contains(coordinate))).findAny()
+				.orElse(null);
 		if (father == null) {
 			hasClear.put(NodeUtil.changeOne(x, y), result);
 		} else {
-			hasClear.get(father).addAll(result);
+			father.getValue().addAll(result);
 		}
 	}
 
