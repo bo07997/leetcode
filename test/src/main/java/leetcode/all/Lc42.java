@@ -19,7 +19,7 @@ public class Lc42 {
 		int jMax = height[height.length - 1];
 		int result = 0;
 		for (int i = 0, j = height.length - 1; i < j; ) {
-			int now = 0;
+			int now;
 			if (iMax < jMax) {
 				i++;
 				iMax = Math.max(iMax, height[i]);

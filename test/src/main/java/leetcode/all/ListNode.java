@@ -14,6 +14,7 @@ public class ListNode {
 
 	ListNode(int val) {
 		this.val = val;
+		System.out.println(val);
 	}
 
 	ListNode(int val, ListNode next) {
